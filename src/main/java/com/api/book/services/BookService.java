@@ -51,5 +51,11 @@ public class BookService {
 	    }
 	    return book;
 	}
+	
+	// adding the book
+	public Book addBook(Book b) {
+		list.add(b);
+		return b;
+	}
 
 }
