@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -58,4 +60,28 @@ public class BookService {
 		return b;
 	}
 
-}
+	// delete book
+//	public void deleteBook(int id) 
+//	{
+//		list.stream().filter(book -> {
+//			if(book.getId()!=id) {
+//				return true;
+//			}else {
+//				return false;
+//			}
+//		}).collect(Collectors.toList());
+//	}
+	
+	public void deleteBook(int id) {
+	    ListIterator<Book> iterator = list.listIterator();
+	    while (iterator.hasNext()) {
+	        Book book = iterator.next();
+	        if (book.getId() == id) {
+	            iterator.remove();  // Remove the book from the list
+	            break;  // Exit the loop after removing the book
+	        }
+	    }
+	}
+
+
+} 
