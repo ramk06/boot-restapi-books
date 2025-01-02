@@ -92,6 +92,39 @@ src/main/java/com/api/book
 - **Response**: None
 
 ---
+## ResponseEntity in Spring Boot
+### What is ResponseEntity?
+`ResponseEntity` is a class in Spring Boot that represents the entire HTTP response. It allows you to:
+- Set the status code of the response.
+- Add headers to the response.
+- Include a body in the response (optional).
+
+Using `ResponseEntity`, you can control the HTTP response more precisely, making it easier to return meaningful error codes or additional metadata.
+
+### Common Methods of ResponseEntity
+- **`status(HttpStatus status)`**: Sets the HTTP status code.
+- **`ok()`**: Returns a 200 OK response.
+- **`of(Optional<T> body)`**: Wraps an `Optional` value in a `ResponseEntity`.
+- **`build()`**: Creates a `ResponseEntity` without a body.
+- **`body(T body)`**: Adds a body to the `ResponseEntity`.
+
+### Examples
+#### Returning a Success Response:
+```java
+return ResponseEntity.ok().body(book);
+```
+
+#### Returning a 404 Not Found Response:
+```java
+return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+```
+
+#### Returning a 204 No Content Response:
+```java
+return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+```
+
+---
 
 ## How to Run the Project
 1. **Clone the Repository**:
