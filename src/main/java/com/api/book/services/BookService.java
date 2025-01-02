@@ -13,47 +13,46 @@ import com.api.book.entities.Book;
 
 @Service
 public class BookService {
-	
+
 	private static List<Book> list = new ArrayList<>();
-	
+
 	static {
 		list.add(new Book(02,"Java Complete Reference","xyz"));
-		list.add(new Book(03,"Javascript Complete Reference","xyz"));
-		list.add(new Book(04,"Python Complete Reference","xyz"));
-		list.add(new Book(05,"Go Complete Reference","xyz"));
-		list.add(new Book(06,"C++ Complete Reference","xyz"));
+//		list.add(new Book(03,"Javascript Complete Reference","xyz"));
+//		list.add(new Book(04,"Python Complete Reference","xyz"));
+//		list.add(new Book(05,"Go Complete Reference","xyz"));
+//		list.add(new Book(06,"C++ Complete Reference","xyz"));
 	}
-	
+
 	// get all books
-	
-	public List<Book> getAllBooks(){
+
+	public List<Book> getAllBooks() {
 		return list;
 	}
-	
+
 	// get single book by id
-	
-	//By stream API
+
+	// By stream API
 
 //	public Book getBookById(int id) {
 //		Book book = null;
 //		list.stream().filter(e ->e.getId()==id).findFirst().get();
 //		return book;
 //	}
-	
-	
+
 	public Book getBookById(int id) {
-	    Book book = null;
-	    ListIterator<Book> iterator = list.listIterator();
-	    while (iterator.hasNext()) {
-	        Book currentBook = iterator.next();
-	        if (currentBook.getId() == id) {
-	            book = currentBook;
-	            break;
-	        }
-	    }
-	    return book;
+		Book book = null;
+		ListIterator<Book> iterator = list.listIterator();
+		while (iterator.hasNext()) {
+			Book currentBook = iterator.next();
+			if (currentBook.getId() == id) {
+				book = currentBook;
+				break;
+			}
+		}
+		return book;
 	}
-	
+
 	// adding the book
 	public Book addBook(Book b) {
 		list.add(b);
@@ -71,18 +70,18 @@ public class BookService {
 //			}
 //		}).collect(Collectors.toList());
 //	}
-	
+
 	public void deleteBook(int id) {
-	    ListIterator<Book> iterator = list.listIterator();
-	    while (iterator.hasNext()) {
-	        Book book = iterator.next();
-	        if (book.getId() == id) {
-	            iterator.remove();  // Remove the book from the list
-	            break;  // Exit the loop after removing the book
-	        }
-	    }
+		ListIterator<Book> iterator = list.listIterator();
+		while (iterator.hasNext()) {
+			Book book = iterator.next();
+			if (book.getId() == id) {
+				iterator.remove(); // Remove the book from the list
+				break; // Exit the loop after removing the book
+			}
+		}
 	}
-	
+
 	// Update the book
 //	public void updateBook(Book book,int id) 
 //	{
@@ -95,19 +94,17 @@ public class BookService {
 //		}).collect(Collectors.toList());
 //		
 //	}
-	
+
 	public void updateBook(Book book, int id) {
-      ListIterator<Book> iterator = list.listIterator();
-        while (iterator.hasNext()) {
-            Book b = iterator.next();
-            if (b.getId() == id) {
-                b.setTitle(book.getTitle());
-                b.setAuthor(book.getAuthor());
-                break;
-            }
-        }
-    }
+		ListIterator<Book> iterator = list.listIterator();
+		while (iterator.hasNext()) {
+			Book b = iterator.next();
+			if (b.getId() == id) {
+				b.setTitle(book.getTitle());
+				b.setAuthor(book.getAuthor());
+				break;
+			}
+		}
+	}
 
-
-} 
-
+}
