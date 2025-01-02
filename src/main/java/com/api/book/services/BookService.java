@@ -82,6 +82,32 @@ public class BookService {
 	        }
 	    }
 	}
+	
+	// Update the book
+//	public void updateBook(Book book,int id) 
+//	{
+//		list = list.stream().map(b->{
+//			if(b.getId()==id) {
+//				b.setTitle(book.getTitle());
+//				b.setAuthor(book.getAuthor());
+//			}
+//			return b;
+//		}).collect(Collectors.toList());
+//		
+//	}
+	
+	public void updateBook(Book book, int id) {
+      ListIterator<Book> iterator = list.listIterator();
+        while (iterator.hasNext()) {
+            Book b = iterator.next();
+            if (b.getId() == id) {
+                b.setTitle(book.getTitle());
+                b.setAuthor(book.getAuthor());
+                break;
+            }
+        }
+    }
 
 
 } 
+
