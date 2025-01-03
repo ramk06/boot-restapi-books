@@ -32,7 +32,7 @@ public class BookController {
 		if (list.size() <= 0) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		} else
-			return ResponseEntity.of(Optional.of(list));
+			return ResponseEntity.status(HttpStatus.CREATED).body(list);
 	}
 
 	// get single book handlet
